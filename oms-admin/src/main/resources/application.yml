@@ -5,7 +5,11 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    type: com.mysql.cj.jdbc.MysqlConnectionPoolDataSource
+    type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://127.0.0.1:3306/omsndb?serverTimezone=Asia/Shanghai
     username: root
     password: 12345678
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

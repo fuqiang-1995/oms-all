@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
+
+
+    User selectByName(String name);
 }
