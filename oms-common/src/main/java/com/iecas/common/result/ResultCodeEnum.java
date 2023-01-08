@@ -1,4 +1,4 @@
-package com.iecas.result;
+package com.iecas.common.result;
 
 public enum ResultCodeEnum {
     SUCCESS(true, 200, "成功"),

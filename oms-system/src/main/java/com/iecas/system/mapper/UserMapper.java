@@ -1,9 +1,8 @@
-package com.iecas.mapper;
+package com.iecas.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.iecas.domain.User;
+import com.iecas.system.domain.User;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 @Mapper
 public interface UserMapper extends BaseMapper<User> {

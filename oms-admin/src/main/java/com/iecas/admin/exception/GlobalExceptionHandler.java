@@ -1,7 +1,7 @@
-package com.iecas.exception;
+package com.iecas.admin.exception;
 
-import com.iecas.result.R;
-import com.iecas.result.ResultCodeEnum;
+import com.iecas.common.result.R;
+import com.iecas.common.result.ResultCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

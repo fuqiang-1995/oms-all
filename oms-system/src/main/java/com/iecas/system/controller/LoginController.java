@@ -1,11 +1,11 @@
-package com.iecas.controller;
+package com.iecas.system.controller;
 
+import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.dev33.satoken.stp.StpUtil;
-import com.iecas.domain.User;
-import com.iecas.result.R;
-import com.iecas.result.ResultCodeEnum;
-import com.iecas.satoken.PasswordUtil;
-import com.iecas.service.UserService;
+import com.iecas.common.result.R;
+import com.iecas.common.result.ResultCodeEnum;
+import com.iecas.system.domain.User;
+import com.iecas.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +30,7 @@ public class LoginController {
             return R.setResult(ResultCodeEnum.USER_NOTFOUND);
         }
         // 校验密码
-        String encode = PasswordUtil.encode(user.getPassword());
+        String encode = SaSecureUtil.md5(user.getPassword());
         if (!dbUser.getPassword().equals(encode)) {
             return R.setResult(ResultCodeEnum.PASSWORD_ERROR);
         }

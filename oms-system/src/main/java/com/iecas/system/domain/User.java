@@ -1,4 +1,4 @@
-package com.iecas.domain;
+package com.iecas.system.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

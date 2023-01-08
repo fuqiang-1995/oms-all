@@ -1,4 +1,4 @@
-package com.iecas.result;
+package com.iecas.common.result;
 
 import java.util.HashMap;
 import java.util.Map;

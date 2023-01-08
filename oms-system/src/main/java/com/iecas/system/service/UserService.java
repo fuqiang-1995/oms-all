@@ -1,7 +1,7 @@
-package com.iecas.service;
+package com.iecas.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.iecas.domain.User;
+import com.iecas.system.domain.User;
 
 /**
  * 用户服务相关
