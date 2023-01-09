@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("user")
 public class UserController {
@@ -67,5 +69,10 @@ public class UserController {
             // User转换UserInfoVo
             return R.ok();
         }
+    }
+
+    public R getAllUser(){
+        List<User> users = userService.list();
+        return R.ok().data("users", users);
     }
 }
