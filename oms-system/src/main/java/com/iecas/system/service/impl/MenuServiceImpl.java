@@ -6,6 +6,7 @@ import com.iecas.system.mapper.MenuMapper;
 import com.iecas.system.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -17,5 +18,11 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     @Override
     public List<Menu> listByUserId(long userId) {
         return menuMapper.selectList(userId);
+    }
+
+    @Override
+    public boolean hasSubMenu(List<Long> ids) {
+        List<Menu> hasSubMenuList = menuMapper.selectHasSubMenuList(ids);
+        return !CollectionUtils.isEmpty(hasSubMenuList);
     }
 }

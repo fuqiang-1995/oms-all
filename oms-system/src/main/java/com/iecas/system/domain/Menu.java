@@ -1,10 +1,12 @@
 package com.iecas.system.domain;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
+@TableName("sys_menu")
 public class Menu {
     private Long id;
     private String menuName;
