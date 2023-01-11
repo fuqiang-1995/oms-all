@@ -1,6 +1,22 @@
-INSERT INTO `sys_menu` (`id`, `menu_name`, `parent_id`, `menu_sort`, `component`, `menu_type`, `menu_icon`, `create_time`, `update_time`) VALUES (1, '系统管理', 0, 1, NULL, 'C', 'config', '2023-01-10 16:33:08', '2023-01-10 16:33:11');
-INSERT INTO `sys_menu` (`id`, `menu_name`, `parent_id`, `menu_sort`, `component`, `menu_type`, `menu_icon`, `create_time`, `update_time`) VALUES (2, '定时任务', 0, 2, NULL, 'C', 'task', '2023-01-09 16:36:56', '2023-01-09 16:36:59');
-INSERT INTO `sys_menu` (`id`, `menu_name`, `parent_id`, `menu_sort`, `component`, `menu_type`, `menu_icon`, `create_time`, `update_time`) VALUES (11, '菜单管理', 1, 1, NULL, 'M', 'menu', '2023-01-09 16:34:21', '2023-01-24 16:34:25');
-INSERT INTO `sys_menu` (`id`, `menu_name`, `parent_id`, `menu_sort`, `component`, `menu_type`, `menu_icon`, `create_time`, `update_time`) VALUES (12, '用户管理', 1, 2, NULL, 'M', 'user', '2023-01-09 16:34:51', '2023-01-09 16:34:55');
-INSERT INTO `sys_menu` (`id`, `menu_name`, `parent_id`, `menu_sort`, `component`, `menu_type`, `menu_icon`, `create_time`, `update_time`) VALUES (21, '查看定时任务', 2, 1, NULL, 'M', 'query', '2023-01-09 16:37:55', '2023-01-09 16:37:58');
-INSERT INTO `sys_menu` (`id`, `menu_name`, `parent_id`, `menu_sort`, `component`, `menu_type`, `menu_icon`, `create_time`, `update_time`) VALUES (22, '新增定时任务', 2, 2, NULL, 'M', 'add', '2023-01-09 16:38:27', '2023-01-09 16:38:31');
+CREATE TABLE `sys_menu` (
+                            `menu_id` bigint NOT NULL AUTO_INCREMENT COMMENT '菜单ID',
+                            `menu_name` varchar(50) NOT NULL COMMENT '菜单名称',
+                            `parent_id` bigint DEFAULT '0' COMMENT '父菜单ID',
+                            `order_num` int DEFAULT '0' COMMENT '显示顺序',
+                            `path` varchar(200) DEFAULT '' COMMENT '路由地址',
+                            `component` varchar(255) DEFAULT NULL COMMENT '组件路径',
+                            `query` varchar(255) DEFAULT NULL COMMENT '路由参数',
+                            `is_frame` int DEFAULT '1' COMMENT '是否为外链（0是 1否）',
+                            `is_cache` int DEFAULT '0' COMMENT '是否缓存（0缓存 1不缓存）',
+                            `menu_type` char(1) DEFAULT '' COMMENT '菜单类型（M目录 C菜单 F按钮）',
+                            `visible` char(1) DEFAULT '0' COMMENT '菜单状态（0显示 1隐藏）',
+                            `status` char(1) DEFAULT '0' COMMENT '菜单状态（0正常 1停用）',
+                            `perms` varchar(100) DEFAULT NULL COMMENT '权限标识',
+                            `icon` varchar(100) DEFAULT '#' COMMENT '菜单图标',
+                            `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                            `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                            `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                            `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                            `remark` varchar(500) DEFAULT '' COMMENT '备注',
+                            PRIMARY KEY (`menu_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='菜单权限表';

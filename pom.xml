@@ -9,6 +9,7 @@
     <module>oms-system</module>
     <module>oms-admin</module>
     <module>oms-common</module>
+      <module>oms-generator</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -49,6 +50,17 @@
         <groupId>cn.dev33</groupId>
         <artifactId>sa-token-spring-boot-starter</artifactId>
         <version>1.33.0</version>
+      </dependency>
+      <!--swagger-->
+      <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger2</artifactId>
+        <version>3.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger-ui</artifactId>
+        <version>3.0.0</version>
       </dependency>
 
       <dependency>
