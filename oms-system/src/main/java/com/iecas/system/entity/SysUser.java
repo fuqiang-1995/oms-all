@@ -3,10 +3,9 @@ package com.iecas.system.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * <p>
@@ -85,6 +84,7 @@ public class SysUser implements Serializable {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
+
     public Long getDeptId() {
         return deptId;
     }
@@ -92,6 +92,7 @@ public class SysUser implements Serializable {
     public void setDeptId(Long deptId) {
         this.deptId = deptId;
     }
+
     public String getUserName() {
         return userName;
     }
@@ -99,6 +100,7 @@ public class SysUser implements Serializable {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
     public String getNickName() {
         return nickName;
     }
@@ -106,6 +108,7 @@ public class SysUser implements Serializable {
     public void setNickName(String nickName) {
         this.nickName = nickName;
     }
+
     public String getUserType() {
         return userType;
     }
@@ -113,6 +116,7 @@ public class SysUser implements Serializable {
     public void setUserType(String userType) {
         this.userType = userType;
     }
+
     public String getEmail() {
         return email;
     }
@@ -120,6 +124,7 @@ public class SysUser implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -127,6 +132,7 @@ public class SysUser implements Serializable {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
     public String getSex() {
         return sex;
     }
@@ -134,6 +140,7 @@ public class SysUser implements Serializable {
     public void setSex(String sex) {
         this.sex = sex;
     }
+
     public String getAvatar() {
         return avatar;
     }
@@ -141,6 +148,7 @@ public class SysUser implements Serializable {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
+
     public String getPassword() {
         return password;
     }
@@ -148,6 +156,7 @@ public class SysUser implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
     public String getStatus() {
         return status;
     }
@@ -155,6 +164,7 @@ public class SysUser implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
+
     public String getDelFlag() {
         return delFlag;
     }
@@ -162,6 +172,7 @@ public class SysUser implements Serializable {
     public void setDelFlag(String delFlag) {
         this.delFlag = delFlag;
     }
+
     public String getLoginIp() {
         return loginIp;
     }
@@ -169,6 +180,7 @@ public class SysUser implements Serializable {
     public void setLoginIp(String loginIp) {
         this.loginIp = loginIp;
     }
+
     public LocalDateTime getLoginDate() {
         return loginDate;
     }
@@ -176,6 +188,7 @@ public class SysUser implements Serializable {
     public void setLoginDate(LocalDateTime loginDate) {
         this.loginDate = loginDate;
     }
+
     public String getCreateBy() {
         return createBy;
     }
@@ -183,6 +196,7 @@ public class SysUser implements Serializable {
     public void setCreateBy(String createBy) {
         this.createBy = createBy;
     }
+
     public LocalDateTime getCreateTime() {
         return createTime;
     }
@@ -190,6 +204,7 @@ public class SysUser implements Serializable {
     public void setCreateTime(LocalDateTime createTime) {
         this.createTime = createTime;
     }
+
     public String getUpdateBy() {
         return updateBy;
     }
@@ -197,6 +212,7 @@ public class SysUser implements Serializable {
     public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy;
     }
+
     public LocalDateTime getUpdateTime() {
         return updateTime;
     }
@@ -204,6 +220,7 @@ public class SysUser implements Serializable {
     public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
     }
+
     public String getRemark() {
         return remark;
     }
@@ -215,25 +232,25 @@ public class SysUser implements Serializable {
     @Override
     public String toString() {
         return "SysUser{" +
-            "userId=" + userId +
-            ", deptId=" + deptId +
-            ", userName=" + userName +
-            ", nickName=" + nickName +
-            ", userType=" + userType +
-            ", email=" + email +
-            ", phoneNumber=" + phoneNumber +
-            ", sex=" + sex +
-            ", avatar=" + avatar +
-            ", password=" + password +
-            ", status=" + status +
-            ", delFlag=" + delFlag +
-            ", loginIp=" + loginIp +
-            ", loginDate=" + loginDate +
-            ", createBy=" + createBy +
-            ", createTime=" + createTime +
-            ", updateBy=" + updateBy +
-            ", updateTime=" + updateTime +
-            ", remark=" + remark +
-        "}";
+                "userId=" + userId +
+                ", deptId=" + deptId +
+                ", userName=" + userName +
+                ", nickName=" + nickName +
+                ", userType=" + userType +
+                ", email=" + email +
+                ", phoneNumber=" + phoneNumber +
+                ", sex=" + sex +
+                ", avatar=" + avatar +
+                ", password=" + password +
+                ", status=" + status +
+                ", delFlag=" + delFlag +
+                ", loginIp=" + loginIp +
+                ", loginDate=" + loginDate +
+                ", createBy=" + createBy +
+                ", createTime=" + createTime +
+                ", updateBy=" + updateBy +
+                ", updateTime=" + updateTime +
+                ", remark=" + remark +
+                "}";
     }
 }

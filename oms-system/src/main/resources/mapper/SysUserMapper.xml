@@ -2,4 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iecas.system.mapper.SysUserMapper">
 
+    <select id="selectList" parameterType="com.iecas.system.entity.qo.SysUserQo"
+            resultType="com.iecas.system.entity.vo.SysUserVo">
+        SELECT
+        u.user_id,
+        u.user_name,
+        u.nick_name,
+        d.dept_name,
+        u.phone_number,
+        u.login_ip,
+        u.login_date
+        FROM
+        sys_user u
+        LEFT JOIN sys_dept d ON u.dept_id = d.dept_id
+        <where>
+            <if test="userName != null">
+                AND u.user_name LIKE CONCAT('%', #{userName}, '%')
+            </if>
+            <if test="nickName != null">
+                AND u.nick_name LIKE CONCAT('%', #{nickName}, '%')
+            </if>
+            <if test="dept_id">
+                AND u.dept_id = #{deptId}
+            </if>
+        </where>
+    </select>
+
 </mapper>

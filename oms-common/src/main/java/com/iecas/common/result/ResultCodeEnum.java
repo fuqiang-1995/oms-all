@@ -6,8 +6,8 @@ public enum ResultCodeEnum {
     NULL_POINT(false, 2002, "参数为空发生异常"),
     DUPLICATE_KEY(false, 2003, "主键重复异常"),
     USER_NOTFOUND(false, 2101, "用户名未找到"),
-    PASSWORD_ERROR(false, 2102, "密码错误")
-    ;
+    PASSWORD_ERROR(false, 2102, "密码错误"),
+    LOGIN_ERROR(false, 2103, "用户名或密码错误");
 
     private Boolean success;
     private Integer code;
