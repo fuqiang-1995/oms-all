@@ -31,12 +31,14 @@ public class LoginController {
     @PostMapping("login")
     public R login(@RequestBody @Validated LoginInfoQo loginInfo) {
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("user_name", loginInfo.getUsername())
-                .eq("password", SaSecureUtil.md5(loginInfo.getPassword()));
+        queryWrapper.eq("user_type", "00")
+                .eq("password", SaSecureUtil.md5(loginInfo.getPassword()))
+                .last("limit 1");
         SysUser user = sysUserService.getOne(queryWrapper);
         // 更新登录信息
         user.setLoginDate(LocalDateTime.now());
-        user.setLoginIp(SpringMVCUtil.getRequest().getRemoteHost());
+        System.out.println(SpringMVCUtil.getRequest().getRemoteHost());
+        user.setLoginIp("127.0.0.1");
         sysUserService.updateById(user);
         log.info(NODE + user.getUserName() + "登录成功");
         if (ObjectUtils.isEmpty(user)) {
@@ -52,9 +54,9 @@ public class LoginController {
             Long userId = (Long) StpUtil.getLoginId();
             StpUtil.logout();
             log.info(NODE + "用户编号" + userId + "退出系统");
-            R.ok().message("登出成功");
+            return R.ok().message("登出成功");
         } else {
-            R.error().message("用户未登录");
+            return R.error().message("用户未登录");
         }
     }
 }

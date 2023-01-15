@@ -17,6 +17,12 @@ import java.util.Objects;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler(Exception.class)
+    public R handler(Exception e){
+        e.printStackTrace();
+        return R.setResult(ResultCodeEnum.UNKNOWN_REASON);
+    }
+
     @ExceptionHandler(value = SQLIntegrityConstraintViolationException.class)
     public R handler(SQLIntegrityConstraintViolationException e) {
         log.error("主键冲突异常，详细信息-" + e.getMessage());
@@ -29,4 +35,5 @@ public class GlobalExceptionHandler {
         log.error(e.getMessage());
         return R.error().message(message);
     }
+
 }

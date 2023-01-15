@@ -1,8 +1,8 @@
 package com.iecas.system.service;
 
-import com.iecas.system.entity.SysUser;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.iecas.system.entity.qo.SysUserQo;
+import com.iecas.system.entity.SysUser;
+import com.iecas.system.entity.vo.SysUserVo;
 
 import java.util.List;
 
@@ -12,10 +12,9 @@ import java.util.List;
  * </p>
  *
  * @author fuqiang
- * @since 2023-01-12 12:45:21
+ * @since 2023-01-15 06:50:36
  */
 public interface ISysUserService extends IService<SysUser> {
 
-    List<SysUser> list(SysUserQo userQo);
-
+    List<SysUser> listQo(SysUserVo userQo);
 }

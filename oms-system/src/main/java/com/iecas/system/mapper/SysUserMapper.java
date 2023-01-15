@@ -1,8 +1,8 @@
 package com.iecas.system.mapper;
 
-import com.iecas.system.entity.SysUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.iecas.system.entity.qo.SysUserQo;
+import com.iecas.system.entity.SysUser;
+import com.iecas.system.entity.vo.SysUserVo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,10 +13,10 @@ import java.util.List;
  * </p>
  *
  * @author fuqiang
- * @since 2023-01-12 12:45:21
+ * @since 2023-01-15 06:50:36
  */
 @Repository
 public interface SysUserMapper extends BaseMapper<SysUser> {
 
-    List<SysUser> selectList(SysUserQo userQo);
+    List<SysUser> selectListByQo(SysUserVo userQo);
 }

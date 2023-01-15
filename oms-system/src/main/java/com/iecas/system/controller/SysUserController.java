@@ -1,15 +1,15 @@
 package com.iecas.system.controller;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import cn.dev33.satoken.secure.SaSecureUtil;
 import com.iecas.common.result.R;
 import com.iecas.system.entity.SysUser;
-import com.iecas.system.entity.qo.SysUserQo;
+import com.iecas.system.entity.vo.SysUserVo;
 import com.iecas.system.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -19,22 +19,17 @@ import java.util.List;
  * </p>
  *
  * @author fuqiang
- * @since 2023-01-12 12:45:21
+ * @since 2023-01-15 06:44:47
  */
-@Controller
+@RestController
 @RequestMapping("/system/sysUser")
 public class SysUserController {
-
     @Autowired
     ISysUserService userService;
 
-    /**
-     * 查询用户列表
-     */
     @PostMapping("list")
-    public R list(@RequestBody SysUserQo userQo) {
-        Page<SysUser> page = new Page<>(userQo.pageIndex, userQo.pageSize);
-        List<SysUser> list = userService.list(userQo);
+    public R list(@RequestBody SysUserVo userQo) {
+        List<SysUser> list = userService.listQo(userQo);
         // TODO 需要将SysUser转换为SysUserVo，避免冗余敏感信息泄露
 
         return R.ok().data("users", list);
@@ -42,7 +37,9 @@ public class SysUserController {
 
     @PostMapping("add")
     public R add(@RequestBody SysUser user){
+        user.setPassword(SaSecureUtil.md5(user.getPassword()));
         boolean result = userService.save(user);
+        System.out.println("result" + result);
         if (result) {
             return R.ok().message("添加用户成功");
         } else {
@@ -50,10 +47,13 @@ public class SysUserController {
         }
     }
 
+    @PostMapping("update")
     public R update(@RequestBody SysUser user){
         boolean result = userService.updateById(user);
         if (result) {
-            return R.ok().message("更新用户信息成功")
+            return R.ok().message("更新用户信息成功");
+        } else {
+            return R.error().message("更新用户信息失败");
         }
     }
 
