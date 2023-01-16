@@ -1,7 +1,9 @@
 package com.iecas.system.service;
 
-import com.iecas.system.entity.SysMenu;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.iecas.system.entity.SysMenu;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ISysMenuService extends IService<SysMenu> {
 
+    List<SysMenu> listByUserId(Long userId);
 }

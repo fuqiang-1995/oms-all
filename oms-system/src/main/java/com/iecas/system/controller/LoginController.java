@@ -37,8 +37,7 @@ public class LoginController {
         SysUser user = sysUserService.getOne(queryWrapper);
         // 更新登录信息
         user.setLoginDate(LocalDateTime.now());
-        System.out.println(SpringMVCUtil.getRequest().getRemoteHost());
-        user.setLoginIp("127.0.0.1");
+        user.setLoginIp(SpringMVCUtil.getRequest().getRemoteHost());
         sysUserService.updateById(user);
         log.info(NODE + user.getUserName() + "登录成功");
         if (ObjectUtils.isEmpty(user)) {
